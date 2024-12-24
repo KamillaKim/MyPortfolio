@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Это портфолио, где представлены мои работы в области веб-дизайна и разработки.">
+    <meta name="keywords" content="веб-дизайн, разработка сайтов, портфолио, фриланс, HTML, CSS, JavaScript, UX/UI">
+
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+    padding-top: 60px;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: left;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #444;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: 0.3s, border-radius 0.3s;
+}
+
+nav ul li a:hover {
+    background: #555;
+    border-radius: 5px;
+}
+
+section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 80px 20px 20px 20px;
+    max-width: 1000px;
+    text-align: left;
+}
+
+section h2 {
+    color: #444;
+    font-size: 2em;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section ul li {
+    background: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border-left: 4px solid #333;
+    border-radius: 5px;
+}
+
+#portfolio {
+    margin: 50px 0;
+}
+
+#portfolio .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: start;
+    max-width: 1200px;
+    margin: 0 20px;
+}
+
+.card {
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border-color: #444;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+}
+
+.card h3 {
+    margin: 10px 15px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.card p {
+    margin: 10px 15px;
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.card a {
+    display: inline-block;
+    margin: 15px;
+    padding: 10px 20px;
+    background: #444;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.card a:hover {
+    background: #555;
+}
+
+
+
+#reviews {
+    background-color: #f4f4f4; 
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 40px 0;
+}
+
+
+#reviews h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+.review-card {
+    background-color: #fff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.review-card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+
+
+.review-card p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+    font-style: italic; 
+}
+
+
+.review-card footer {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+}
+
+
+.swiper-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #333;
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+.contact-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #66afe9;
+    outline: none;
+    background-color: #fff;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 15px;
+    }
+
+    .contact-form h2 {
+        font-size: 1.5em;
+    }
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    body {
+        font-size: 90%; 
+    }
+
+    header h1 {
+        font-size: 2em; 
+    }
+
+    section {
+        margin: 60px 10px 20px 10px; 
+    }
+
+    #portfolio .portfolio-grid {
+        gap: 15px;
+    }
+
+    .card {
+        max-width: 250px; 
+    }
+}
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 80%; 
+    }
+
+    header h1 {
+        font-size: 1.5em; 
+    }
+
+    nav ul {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    section {
+        margin: 20px; 
+    }
+
+    #portfolio .portfolio-grid {
+        grid-template-columns: 1fr; 
+        gap: 10px; 
+    }
+
+    .card {
+        max-width: 100%; 
+    }
+
+    .contact-form button {
+        width: 100%; 
+    }
+}
+
+
+
+.text-animation {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+    color: #2e8b57;
+    transform: scale(1.1);  
+}
+
+
+
+
+.image-animation {
+    opacity: 0;
+    transform: scale(0.8); 
+    animation: slideIn 1.5s forwards;
+}
+
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.8); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1); 
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Моё Портфолио</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#about">О себе</a></li>
+            <li><a href="#portfolio">Портфолио</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Добро пожаловать!</h2>
+            <p>Привет! Меня зовут Бектемисова Камилла, и я студентка колледжа. Это мой сайт-портфолио, где вы можете узнать обо мне больше.</p>
+        </section>
+
+        <section id="about">
+            <h2>О себе</h2>
+            <p>Меня зовут Бектемисова Камилла. В колледже я изучаю веб-дизайн и разработку. Сама же я люблю заниматься рукоделием: я умею вязать и на спицах, и на крючке, я также умею шить.
+                Также я люблю читать манхвы и новеллы разных жанров, обожаю слушать различную музыку. Я - меломан, так что слушаю то, что мне понравится. Я интересуюсь астрономией, астрологией и эзотерикой.
+            </p>
+            <h3>Навыки, которым я обучилась во время обучения:</h3>
+            <ul>
+                <li>HTML, CSS.</li>
+                <li>Adobe Photoshop и Illustrator.</li>
+                <li>Прототипирование (Adobe XD, Figma).</li>
+            </ul>
+            <h3>Достижения за время обучения:</h3>
+            <ul>
+                <li>Создание макетов сайтов, веб-приложений и других веб-ресурсов.</li>
+                <li>Участие в конкурсе "Я - предприниматель".</li>
+            </ul>
+        </section>
+
+        <section id="portfolio">
+            <h2>Портфолио</h2>
+            <div class="portfolio-grid">
+                <div class="card">
+                    <img src="Картинка12.jfif" alt="Проект 1">
+                    <h3>Проект 1: Кулинарный блог</h3>
+                    <p>Описание: Сайт с кулинарными блогами и рецептами.</p>
+                    <a href="index102.html" target="_blank">Посмотреть проект</a>
+                </div>
+                <div class="card">
+                    <img src="a1714193-171e-4d9c-8abb-7747f120e392.jfif" alt="Проект 2">
+                    <h3>Проект 2: Интернет-магазин</h3>
+                    <p>Описание: Дизайн страниц для e-commerce проекта.</p>
+                    <a href="index104.html" target="_blank">Посмотреть проект</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="reviews">
+            <h2>Отзывы моих клиентов</h2>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <p>"Отличная работа! Превосходный результат!"</p>
+                        <footer>- Иван Иванов</footer>
+                    </div>
+                    <div class="swiper-slide">
+                        <p>"Очень доволен результатом, буду рекомендовать!"</p>
+                        <footer>- Мария Петрова</footer>
+                    </div>
+                </div>
+               
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+        <script>
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1, 
+                spaceBetween: 10, 
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev', 
+                },
+            });
+        </script>
+
+
+        <section id="contact">
+            <h2>Контакты</h2>
+            <form class="contact-form">
+                <label for="name">Имя</label>
+                <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+                <label for="message">Сообщение</label>
+                <textarea id="message" name="message" rows="5" placeholder="Введите ваше сообщение" required></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Бектемисова Камилла. Все права защищены.</p>
+    </footer>
+</body>
+</html>
